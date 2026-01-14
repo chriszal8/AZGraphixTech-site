@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AZ GraphixTech | Web, Graphics & Tech Support</title>
+    <meta
+  name="description"
+  content="AZ GraphixTech helps small businesses with websites, graphics, QR codes, and reliable tech support. Serving Houston and surrounding areas."
+/>
+
+    <link rel="icon" href="./assets/favicon.png" type="image/png" />
+
+    <!-- IMPORTANT: these paths are RELATIVE and work with file:// -->
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <header class="nav">
+      <div class="nav__inner">
+        <!-- BRAND / LOGO -->
+        <div class="nav__brand">
+          <a href="#" data-section="home" class="nav__brand-link">
+            <img
+              src="./assets/logo2.jpg"
+              alt="AZ GraphixTech"
+              class="nav__logo-img"
+            />
+            <span class="nav__brand-text"><strong>AZ GraphixTech</strong></span>
+          </a>
+        </div>
+
+        <!-- NAV LINKS (IDs match sections below) -->
+        <nav class="nav__links">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#why-choose">Why Choose</a>
+          <a href="#pricing">Packages</a>
+          <a href="#process">How It Works</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <!-- CTA -->
+        <div class="nav__actions">
+          <a class="btn btn--primary" href="#contact">Get a Quote</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- PAGE WRAPPER -->
+    <main class="page">
+      <!-- HERO -->
+      <section class="hero" id="home">
+        <div class="hero__inner">
+          <div class="hero__left">
+            <h1 class="hero__title">
+              AZ GraphixTech
+              <span class="hero__accent">Web • Graphics • Tech Support</span>
+            </h1>
+
+            <p class="hero__subtitle">
+              AZ GraphixTech helps to build clean, modern websites and branding that helps small business get more calls, more trust and more clients - with real tech support when you need it.
+            </p>
+
+            <p class="small hero__trust" style="margin-top:10px;color:var(--muted);">
+  👋 Hi, I’m <strong>Christian</strong> — I build your site personally (no outsourcing).
+  Fast replies + clear pricing.
+</p>
+
+
+            <div class="hero__cta">
+              <a class="btn btn--primary" href="#" data-section="contact">
+                Request a Quote
+              </a>
+              <a class="btn btn--outline" href="#" data-section="services">View Services
+              </a>
+              </div>  
+
+                <p class="hero__trust small" style="margin-top:10px;color:var(--muted);">
+                No pressure • Clear pricing • Real human replies
+               </p>
+
+              </a>
+            </div>
+            <p class="small" style="margin-top:14px;color:var(--muted);">
+  ¿Hablas español? 👋<br />
+  Atiendo en español e inglés. Escríbeme y te ayudo paso a paso.
+</p>
+
+
+            <div class="hero__badges">
+              <span class="badge">Fast Turnaround</span>
+              <span class="badge">DTF-Ready Design</span>
+              <span class="badge">Business-Friendly Tech</span>
+            </div>
+
+            <div class="trust-strip">
+              <span class="trust-pill"
+                >📍 Serving Houston & Surrounding Areas</span
+              >
+              <span class="trust-pill">⚡ Fast replies (same day)</span>
+              <span class="trust-pill">💬 Clear pricing + timeline</span>
+            </div>
+          </div>
+
+          <!-- QUICK QUOTE CARD -->
+          <div class="hero__right">
+            <div class="card">
+              <h2 class="card__title">Quick Quote Starter</h2>
+
+              <p class="card__hint">
+                Answer one quick question and I'll personally reply with a clear
+                quote and timeline.
+              </p>
+
+              <p id="message" class="message">
+                This interactive form helps start your quote quickly and easily.
+              </p>
+
+              <div class="input-group">
+                <input id="nameInput" type="text" placeholder="Your name" />
+                <button id="btnGreet" type="button">Continue</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="section" id="services">
+        <div class="section__inner">
+          <h2 class="section__title">Services</h2>
+          <p class="section__subtitle">
+            Everything you need to build your brand and keep your tech running.
+          </p>
+
+          <div class="services">
+            <!-- Web & Digital -->
+            <div class="service">
+              <div class="service__icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="4" width="18" height="12" rx="2"></rect>
+                  <path d="M8 20h8"></path>
+                  <path d="M12 16v4"></path>
+                </svg>
+              </div>
+
+              <div class="service__body">
+                <h3 class="service__title">
+                  <span class="service__accent">Web & Digital</span>
+                </h3>
+                <p class="service__text">
+                  Websites, landing pages, client portals, QR codes, simple
+                  tools.
+                </p>
+              </div>
+            </div>
+
+            <!-- Graphics & Apparel -->
+            <div class="service">
+              <div class="service__icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 20h9"></path>
+                  <path
+                    d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4 11.5-11.5z"
+                  ></path>
+                </svg>
+              </div>
+
+              <div class="service__body">
+                <h3 class="service__title">
+                  <span class="service__accent">Graphics & Apparel</span>
+                </h3>
+                <p class="service__text">
+                  Logos, mockups, DTF-ready designs, laser engraving, branding.
+                </p>
+              </div>
+            </div>
+
+            <!-- Tech Support -->
+            <div class="service">
+              <div class="service__icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 2l-2 2"></path>
+                  <path d="M7 7l-5 5"></path>
+                  <path d="M16 11l5-5"></path>
+                  <path d="M3 21l5-5"></path>
+                </svg>
+              </div>
+
+              <div class="service__body">
+                <h3 class="service__title">
+                  <span class="service__accent">Tech Support</span>
+                </h3>
+                <p class="service__text">
+                  PC help, troubleshooting, network engineering, setup,
+                  guidance.
+                </p>
+              </div>
+            </div>
+
+            <!-- QR Codes & Smart Links -->
+            <div class="service">
+              <div class="service__icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M9 3H5a2 2 0 0 0-2 2v4"></path>
+                  <path d="M15 3h4a2 2 0 0 1 2 2v4"></path>
+                  <path d="M9 21H5a2 2 0 0 1-2-2v-4"></path>
+                  <path d="M21 15v4a2 2 0 0 1-2 2h-4"></path>
+                  <path d="M8 8h2v2H8V8Z"></path>
+                  <path d="M14 8h2v2h-2V8Z"></path>
+                  <path d="M8 14h2v2H8v-2Z"></path>
+                  <path d="M14 14h2v2h-2v-2Z"></path>
+                </svg>
+              </div>
+
+              <div class="service__body">
+                <h3 class="service__title">
+                  <span class="service__accent">QR Codes & Smart Links</span>
+                </h3>
+                <p class="service__text">
+                  Custom QR codes for menus, payments, websites, social media,
+                  and flyers.
+                </p>
+              </div>
+            </div>
+
+            <!-- Automation -->
+            <div class="service">
+              <div class="service__icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"
+                  ></path>
+                  <path
+                    d="M19.4 15a7.9 7.9 0 0 0 .1-2l2-1.5-2-3.5-2.3.8a7.8 7.8 0 0 0-1.7-1L15 5h-6l-.5 2.8a7.8 7.8 0 0 0-1.7 1L4.5 8l-2 3.5L4.5 13a7.9 7.9 0 0 0 .1 2L2.5 16.5l2 3.5 2.3-.8a7.8 7.8 0 0 0 1.7 1L9 22h6l.5-2.8a7.8 7.8 0 0 0 1.7-1l2.3.8 2-3.5L19.4 15z"
+                  ></path>
+                </svg>
+              </div>
+
+              <div class="service__body">
+                <h3 class="service__title">
+                  <span class="service__accent">Automation</span>
+                </h3>
+                <p class="service__text">
+                  Simple scripts + workflows that save time.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="services-trust">
+            <span>✅ Fast turnaround</span>
+            <span>✅ Clean, modern design</span>
+            <span>✅ Clear pricing + timeline</span>
+          </div>
+
+          <div class="services-cta">
+            <div class="services-cta__text">
+              <strong>Not sure what you need?</strong>
+              <span
+                >Tell me your goal and I’ll recommend the best option +
+                price.</span
+              >
+            </div>
+
+            <div class="services-cta__actions">
+              <a class="btn btn--primary" href="#" data-section="contact"
+                >Get a Quote</a
+              >
+              <a class="btn btn--outline" href="tel:18326080591"
+                >Call 832-608-0591</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ========================= -->
+<!-- SPANISH LANDING SECTION   -->
+<!-- Paste this AFTER your Services section (right after </section> for #services) -->
+<!-- Uses your exact classes: section, section--alt, section__inner, section__title, section__subtitle, services, service, service__icon, service__body, service__title, service__accent, service__text, services-trust, services-cta, services-cta__text, services-cta__actions, btn, btn--primary, btn--outline -->
+<!-- ========================= -->
+
+<section class="section section--alt" id="espanol">
+  <div class="section__inner">
+    <h2 class="section__title">Servicios (Español)</h2>
+    <p class="section__subtitle">
+      Atención en español. Todo lo que necesitas para hacer crecer tu negocio y mantener tu tecnología funcionando.
+    </p>
+
+    <div class="services">
+      <!-- Web & Digital -->
+      <div class="service">
+        <div class="service__icon" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="4" width="18" height="12" rx="2"></rect>
+            <path d="M8 20h8"></path>
+            <path d="M12 16v4"></path>
+          </svg>
+        </div>
+
+        <div class="service__body">
+          <h3 class="service__title">
+            <span class="service__accent">Web y Servicios Digitales</span>
+          </h3>
+          <p class="service__text">
+            Sitios web, páginas de aterrizaje, portales para clientes, códigos QR y herramientas digitales simples.
+          </p>
+        </div>
+      </div>
+
+      <!-- Graphics & Apparel -->
+      <div class="service">
+        <div class="service__icon" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 20h9"></path>
+            <path
+              d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4 11.5-11.5z"
+            ></path>
+          </svg>
+        </div>
+
+        <div class="service__body">
+          <h3 class="service__title">
+            <span class="service__accent">Diseño Gráfico y Ropa Personalizada</span>
+          </h3>
+          <p class="service__text">
+            Logotipos, mockups, diseños listos para DTF, grabado láser y branding profesional para tu marca.
+          </p>
+        </div>
+      </div>
+
+      <!-- Tech Support -->
+      <div class="service">
+        <div class="service__icon" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 2l-2 2"></path>
+            <path d="M7 7l-5 5"></path>
+            <path d="M16 11l5-5"></path>
+            <path d="M3 21l5-5"></path>
+          </svg>
+        </div>
+
+        <div class="service__body">
+          <h3 class="service__title">
+            <span class="service__accent">Soporte Técnico</span>
+          </h3>
+          <p class="service__text">
+            Ayuda para PC, solución de problemas, configuración de redes, instalación y asesoría clara y honesta.
+          </p>
+        </div>
+      </div>
+
+      <!-- QR Codes -->
+      <div class="service">
+        <div class="service__icon" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M9 3H5a2 2 0 0 0-2 2v4"></path>
+            <path d="M15 3h4a2 2 0 0 1 2 2v4"></path>
+            <path d="M9 21H5a2 2 0 0 1-2-2v-4"></path>
+            <path d="M21 15v4a2 2 0 0 1-2 2h-4"></path>
+            <path d="M8 8h2v2H8V8Z"></path>
+            <path d="M14 8h2v2h-2V8Z"></path>
+            <path d="M8 14h2v2H8v-2Z"></path>
+            <path d="M14 14h2v2h-2v-2Z"></path>
+          </svg>
+        </div>
+
+        <div class="service__body">
+          <h3 class="service__title">
+            <span class="service__accent">Códigos QR y Enlaces Inteligentes</span>
+          </h3>
+          <p class="service__text">
+            Códigos QR personalizados para menús, pagos, sitios web, redes sociales y volantes.
+          </p>
+        </div>
+      </div>
+
+      <!-- Automation -->
+      <div class="service">
+        <div class="service__icon" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path>
+            <path
+              d="M19.4 15a7.9 7.9 0 0 0 .1-2l2-1.5-2-3.5-2.3.8a7.8 7.8 0 0 0-1.7-1L15 5h-6l-.5 2.8a7.8 7.8 0 0 0-1.7 1L4.5 8l-2 3.5L4.5 13a7.9 7.9 0 0 0 .1 2L2.5 16.5l2 3.5 2.3-.8a7.8 7.8 0 0 0 1.7 1L9 22h6l.5-2.8a7.8 7.8 0 0 0 1.7-1l2.3.8 2-3.5L19.4 15z"
+            ></path>
+          </svg>
+        </div>
+
+        <div class="service__body">
+          <h3 class="service__title">
+            <span class="service__accent">Automatización</span>
+          </h3>
+          <p class="service__text">
+            Scripts y flujos de trabajo simples que te ahorran tiempo y hacen tu negocio más eficiente.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="services-trust">
+      <span>✅ Entrega rápida</span>
+      <span>✅ Diseño limpio y moderno</span>
+      <span>✅ Precios claros + tiempo definido</span>
+    </div>
+
+    <div class="services-cta">
+      <div class="services-cta__text">
+        <strong>¿No estás seguro de lo que necesitas?</strong>
+        <span>Cuéntame tu objetivo y te recomendaré la mejor opción + precio.</span>
+      </div>
+
+      <div class="services-cta__actions">
+        <a class="btn btn--primary" href="#contact" data-section="contact">
+          Cotización rápida
+        </a>
+        <a class="btn btn--outline" href="tel:18326080591">
+          Llamar 832-608-0591
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+      <!-- TRUST / TESTIMONIALS -->
+      <section class="section section--alt" id="testimonials">
+        <div class="section__inner">
+          <h2 class="section__title">Trusted by Clients</h2>
+          <p class="section__subtitle">
+            Fast communication, clean work, and support you can count on.
+          </p>
+
+          <div class="why-grid">
+            <div class="why-item">
+              <div class="why-icon">⭐</div>
+              <strong>Quick turnaround</strong>
+              <p class="small" style="margin-top: 8px">
+                “He delivered my website fast and explained everything clearly.
+                Super easy to work with.”
+              </p>
+              <p class="small" style="margin-top: 10px; color: var(--muted)">
+                — Small Business Owner
+              </p>
+            </div>
+
+            <div class="why-item">
+              <div class="why-icon">✅</div>
+              <strong>Clean & professional design</strong>
+              <p class="small" style="margin-top: 8px">
+                “My branding looks premium now. The layout is modern and it
+                matches my business perfectly.”
+              </p>
+              <p class="small" style="margin-top: 10px; color: var(--muted)">
+                — Local Entrepreneur
+              </p>
+            </div>
+
+            <div class="why-item">
+              <div class="why-icon">🛠️</div>
+              <strong>Real tech support</strong>
+              <p class="small" style="margin-top: 8px">
+                “He fixed my setup and helped me understand it. Reliable support
+                when I needed it.”
+              </p>
+              <p class="small" style="margin-top: 10px; color: var(--muted)">
+                — Home Office Client
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHY CHOOSE (FIXED) -->
+      <section class="section" id="why-choose">
+        <div class="section__inner">
+          <h2 class="section__title">Why Choose AZ GraphixTech</h2>
+          <p class="section__subtitle">
+            Clean solutions, fast delivery, and real support — built for small
+            businesses.
+          </p>
+
+          <div class="why-grid">
+            <div class="why-item">
+              <span class="why-icon">⚡</span>
+              <strong>Fast Turnaround</strong>
+              <p>No waiting weeks. I deliver efficiently and clearly.</p>
+            </div>
+
+            <div class="why-item">
+              <span class="why-icon">🎯</span>
+              <strong>Business-Focused</strong>
+              <p>
+                Everything is designed to help customers trust and contact you.
+              </p>
+            </div>
+
+            <div class="why-item">
+              <span class="why-icon">🛠️</span>
+              <strong>All-in-One Support</strong>
+              <p>Web, graphics, QR codes, and tech help in one place.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PACKAGES -->
+      <section class="section" id="pricing">
+        <div class="section__inner">
+          <h2 class="section__title">Packages</h2>
+          <p class="section__subtitle">Simple, transparent options.</p>
+
+          <div class="services">
+            <div class="service">
+              <strong>Starter</strong><br />
+              One-page website or design help.<br /><br />
+              <em>From $500</em>
+            </div>
+
+            <div class="service">
+              <strong>Business</strong><br />
+              Multi-page website + branding.<br /><br />
+              <em>From $1,000</em>
+            </div>
+
+            <div class="service">
+              <strong>Custom</strong><br />
+              DTF designs, tech support, or automation.<br /><br />
+              <em>Quote based</em>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section class="section" id="process">
+        <div class="section__inner">
+          <h2 class="section__title">How It Works</h2>
+          <p class="section__subtitle">
+            A simple process so you always know what happens next.
+          </p>
+
+          <div class="services">
+            <div class="service">
+              <strong>1) Message Me</strong>
+              Tell me what you need.
+            </div>
+            <div class="service">
+              <strong>2) Quick Quote</strong>
+              Clear price and timeline.
+            </div>
+            <div class="service">
+              <strong>3) Build & Deliver</strong>
+              Review together and deliver final files.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO -->
+      <section class="section" id="portfolio">
+        <div class="section__inner">
+          <h2 class="section__title">Portfolio</h2>
+          <p class="section__subtitle">
+            Real projects built with clean, modern code.
+          </p>
+
+          <div class="portfolio-grid">
+            <!-- Project 1 -->
+            <div class="portfolio-card">
+              <strong>AZ GraphixTech — Business Website</strong>
+              <p class="small" style="margin-top: 8px">
+                Single-page SPA website built with HTML, CSS, and JavaScript.
+              </p>
+
+              <ul class="small" style="margin: 10px 0 0; padding-left: 18px">
+                <li>Single-page SPA navigation (no reloads)</li>
+                <li>Mobile-friendly responsive layout</li>
+                <li>Custom UI, buttons, and interactions</li>
+                <li>Contact form & quote starter</li>
+              </ul>
+
+              <div style="margin-top: 14px">
+                <a class="btn btn--primary" href="#" data-section="contact">
+                  Request a Similar Website
+                </a>
+              </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="portfolio-card">
+              <strong>Client Website — Coming Soon</strong>
+              <p class="small" style="margin-top: 8px">
+                Custom website currently in development for a small business.
+              </p>
+
+              <ul class="small" style="margin: 10px 0 0; padding-left: 18px">
+                <li>Business-focused design</li>
+                <li>Clean branding & structure</li>
+                <li>Fast turnaround delivery</li>
+              </ul>
+
+              <div style="margin-top: 14px">
+                <em>Launching soon.</em>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA: QUICK QUOTE -->
+      <section class="section" id="cta-quote">
+        <div class="section__inner">
+          <div
+            class="card"
+            style="box-shadow: 0 10px 22px rgba(15, 118, 110, 0.08)"
+          >
+            <h2 class="section__title" style="margin-bottom: 6px">
+              Get a Quick Quote
+            </h2>
+            <p class="section__subtitle" style="margin-bottom: 14px">
+              Tell me what you need and I’ll reply with a clear price +
+              timeline.
+            </p>
+
+            <div style="display: flex; gap: 12px; flex-wrap: wrap">
+              <a
+                class="btn btn--primary"
+                href="#"
+                data-section="contact"
+                data-template="website"
+                >Website Quote</a
+              >
+              <a
+                class="btn btn--outline"
+                href="#"
+                data-section="contact"
+                data-template="logo"
+                >Logo / Branding</a
+              >
+              <a
+                class="btn btn--outline"
+                href="#"
+                data-section="contact"
+                data-template="qr"
+                >QR Code Setup</a
+              >
+              <a
+                class="btn btn--outline"
+                href="#"
+                data-section="contact"
+                data-template="support"
+                >Tech Support</a
+              >
+            </div>
+
+            <p class="small" style="margin-top: 12px">
+              Prefer phone? Call <strong>832-608-0591</strong> or text/WhatsApp
+              anytime.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section section--alt" id="contact">
+        <div class="section__inner contact">
+          <!-- LEFT -->
+          <div>
+            <h2 class="section__title">Contact</h2>
+            <p class="section__subtitle">Ready to get started? Let’s talk.</p>
+
+            <p class="small" style="margin-top: 6px; color: var(--muted)">
+              Typical response time: <strong>within 24 hours</strong>.
+            </p>
+
+            <p class="contact-trust">
+              Serving Houston & surrounding areas • Fast response • Clear
+              pricing
+            </p>
+
+            <div class="contact__box">
+              <p>
+                <strong>Email:</strong>
+                <a href="mailto:azgraphixtech.1@gmail.com"
+                  >azgraphixtech.1@gmail.com</a
+                >
+              </p>
+
+              <p>
+                <strong>Primary Phone:</strong>
+                <a href="tel:18326080591">832-608-0591</a>
+              </p>
+
+              <p>
+                <strong>Secondary Phone:</strong>
+                <a href="tel:13476986681">347-698-6681</a>
+              </p>
+
+              <p class="small">
+                Call or text for quotes, questions, or support.
+              </p>
+            </div>
+
+            <div class="contact__methods">
+              <a class="btn btn--outline" href="tel:18326080591"
+                >📞 Call (Primary)</a
+              >
+              <a class="btn btn--outline" href="sms:18326080591"
+                >💬 Text (Primary)</a
+              >
+              <a
+                class="btn btn--outline"
+                href="https://wa.me/18326080591"
+                target="_blank"
+                rel="noopener"
+                >🟢 WhatsApp</a
+              >
+            </div>
+          </div>
+
+          <!-- RIGHT -->
+          <form
+
+
+  action="https://formspree.io/f/mzddbjzq"
+  method="POST"
+  class="contact__form"
+>
+
+            <input
+              id="contactName"
+              name="name"
+              type="text"
+              placeholder="Your name"
+              required
+            />
+            <input
+              id="contactEmail"
+              name="email"
+              type="email"
+              placeholder="Your email"
+              required
+            />
+            <textarea
+              id="contactMessage"
+              name="message"
+              rows="4"
+              placeholder="Your message"
+              required
+            ></textarea>
+            <!-- Trust note ABOVE button -->
+             <!-- Trust note ABOVE button -->
+<p class="small" style="margin-bottom:10px;color:var(--muted);">
+  🔒 Your information is private. I respond personally within 24 hours.
+</p>
+
+<button class="btn btn--primary" type="submit">
+  Send Message
+</button>
+
+<p class="small" style="margin-top:8px;color:var(--muted);">
+  I’ll review your message and reply with pricing and timeline.
+</p>
+
+<p id="formStatus" class="form-status"></p>
+
+
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <div class="footer__inner">
+          <span>© <span id="year"></span> AZ GraphixTech</span>
+          <span class="small">Built with HTML • CSS • JavaScript</span>
+        </div>
+      </footer>
+      <!-- =========================
+     AZ ADD-ON: TRUST + FAQ + FINAL CTA
+     Paste this RIGHT ABOVE </main>
+========================== -->
+
+<section class="section section--alt" id="trust-proof">
+  <div class="section__inner">
+
+    <h2 class="section__title">Why Clients Choose AZ GraphixTech</h2>
+    <p class="section__subtitle">
+      Clean work, fast replies, and real support — built for small business owners.
+    </p>
+
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-icon">⚡</div>
+        <strong>Fast replies</strong>
+        <p class="small" style="margin-top:8px;color:var(--muted);">
+          Same-day response when possible. Clear timeline every time.
+        </p>
+      </div>
+
+      <div class="why-item">
+        <div class="why-icon">✅</div>
+        <strong>Clear pricing</strong>
+        <p class="small" style="margin-top:8px;color:var(--muted);">
+          No confusion. You get a simple quote + what’s included.
+        </p>
+      </div>
+
+      <div class="why-item">
+        <div class="why-icon">🛠️</div>
+        <strong>Real support</strong>
+        <p class="small" style="margin-top:8px;color:var(--muted);">
+          Not just design — I help you keep things working after launch.
+        </p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:22px;">
+      <h3 style="margin:0 0 10px;">FAQ (Quick Answers)</h3>
+
+      <div class="faq">
+        <details class="faq__item">
+          <summary class="faq__q">How fast can you finish a website?</summary>
+          <p class="faq__a small">
+            Most one-page sites can be done in a few days depending on content.
+            Multi-page sites usually take longer. I’ll give you a clear timeline up front.
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__q">Do you help with updates after the website is live?</summary>
+          <p class="faq__a small">
+            Yes. I can help with edits, fixes, and improvements — or show you how to update it.
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__q">What do you need from me to start?</summary>
+          <p class="faq__a small">
+            Just your goal + a few details (business name, services, phone/email, and any logo/photos).
+          </p>
+        </details>
+      </div>
+
+      <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="btn btn--primary" href="#contact" data-section="contact">Get a Quote</a>
+        <a class="btn btn--outline" href="tel:18326080591">Call 832-608-0591</a>
+        <a class="btn btn--outline" href="sms:18326080591">Text Me</a>
+      </div>
+
+      <p class="small" style="margin-top:12px;color:var(--muted);">
+        No pressure. Clear pricing. Real human replies.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+    </main>
+
+    <script>
+      document.getElementById("year").innerText = new Date().getFullYear();
+    </script>
+
+    <!-- Mobile Contact Buttons -->
+    <div class="mobile-contact-bar">
+      <a href="tel:18326080591" class="call-now-btn">📞 Call</a>
+      <a href="sms:13476986681" class="text-now-btn">💬 Text</a>
+      <a
+        href="https://wa.me/18326080591"
+        class="whatsapp-btn"
+        target="_blank"
+        rel="noopener"
+      >
+        🟢 WhatsApp
+      </a>
+    </div>
+  </body>
+</html>
