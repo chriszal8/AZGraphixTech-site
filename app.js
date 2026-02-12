@@ -30,13 +30,51 @@ document.addEventListener("DOMContentLoaded", () => {
   bindClick('a[href*="wa.me/"]', "whatsapp_click", { location: "site" });
 
   // -----------------------------
+  // Quick Quote Starter -> Prefill + Track
+  // -----------------------------
+  const nameInput = document.getElementById("nameInput");
+  const btnGreet = document.getElementById("btnGreet");
+  const messageEl = document.getElementById("message");
+
+  const contactName = document.getElementById("contactName");
+  const contactSection = document.getElementById("contact");
+
+  function startQuickQuote() {
+    const name = (nameInput?.value || "").trim();
+    if (!name) {
+      if (messageEl) messageEl.textContent = "Please enter your name to continue.";
+      return;
+    }
+
+    // Track micro-lead
+    track("quick_quote_started", { location: "hero_card" });
+
+    // Prefill contact form name
+    if (contactName) contactName.value = name;
+
+    // Update helper text
+    if (messageEl) messageEl.innerHTML = `<strong>Nice, ${name}.</strong> I’ll pre-fill your name below — just send your message.`;
+
+    // Scroll to contact
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  if (btnGreet) btnGreet.addEventListener("click", startQuickQuote);
+  if (nameInput) {
+    nameInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") startQuickQuote();
+    });
+  }
+
+  // -----------------------------
   // Formspree inline submit (no redirect)
   // -----------------------------
   const form = document.getElementById("quote-form");
   const status = document.getElementById("formStatus");
 
   if (form && status) {
-    // Clear status while typing
     form.querySelectorAll("input, textarea").forEach((el) => {
       el.addEventListener("input", () => {
         status.textContent = "";
@@ -47,7 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      // Track submit attempt
       track("quote_form_submit_attempt", { location: "contact_form" });
 
       const data = new FormData(form);
@@ -73,7 +110,6 @@ document.addEventListener("DOMContentLoaded", () => {
             "<strong>Message received.</strong><br>I'll personally review it and reply within 24 hours.";
           status.className = "form-status success";
 
-          // Track successful submit
           track("quote_form_submit_success", { location: "contact_form" });
 
           form.reset();
@@ -97,3 +133,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
