@@ -245,3 +245,46 @@ document.querySelectorAll("a[data-section]").forEach((a) => {
     window.scrollTo({ top: y, behavior: "smooth" });
   });
 });
+const form = document.getElementById("quote-form");
+const status = document.getElementById("formStatus");
+
+if (form) {
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const data = new FormData(form);
+    const button = form.querySelector("button");
+
+    button.disabled = true;
+    button.textContent = "Sending...";
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        status.innerHTML = `
+          <strong>Message received.</strong><br>
+          I’ll personally review your request and respond within 24 hours.
+        `;
+        status.style.color = "#0a7f5a";
+
+        form.reset();
+      } else {
+        status.textContent = "Something went wrong. Please try again.";
+        status.style.color = "red";
+      }
+    } catch (error) {
+      status.textContent = "Network error. Please try again.";
+      status.style.color = "red";
+    }
+
+    button.disabled = false;
+    button.textContent = "Request a Quote";
+  });
+}
