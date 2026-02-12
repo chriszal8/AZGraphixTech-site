@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
   // -----------------------------
   // GA4 helper
   // -----------------------------
@@ -9,22 +9,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function bindClick(selector, eventName, params) {
-    document.querySelectorAll(selector).forEach((el) => {
-      el.addEventListener("click", () => track(eventName, params));
-    });
+    var els = document.querySelectorAll(selector);
+    for (var i = 0; i < els.length; i++) {
+      els[i].addEventListener("click", function () {
+        track(eventName, params);
+      });
+    }
   }
 
   // -----------------------------
   // GA4 click tracking
   // -----------------------------
-  bindClick('.nav__actions a[href="#contact"]', "nav_quote_click", {
-    location: "nav",
-  });
-
-  bindClick('a.btn--primary[href="#contact"]', "cta_quote_click", {
-    location: "page",
-  });
-
+  bindClick('.nav__actions a[href="#contact"]', "nav_quote_click", { location: "nav" });
+  bindClick('a.btn--primary[href="#contact"]', "cta_quote_click", { location: "page" });
   bindClick('a[href^="tel:"]', "call_click", { location: "site" });
   bindClick('a[href^="sms:"]', "text_click", { location: "site" });
   bindClick('a[href*="wa.me/"]', "whatsapp_click", { location: "site" });
@@ -32,15 +29,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // -----------------------------
   // Quick Quote Starter -> Prefill + Track
   // -----------------------------
-  const nameInput = document.getElementById("nameInput");
-  const btnGreet = document.getElementById("btnGreet");
-  const messageEl = document.getElementById("message");
+  var nameInput = document.getElementById("nameInput");
+  var btnGreet = document.getElementById("btnGreet");
+  var messageEl = document.getElementById("message");
 
-  const contactName = document.getElementById("contactName");
-  const contactSection = document.getElementById("contact");
+  var contactName = document.getElementById("contactName");
+  var contactSection = document.getElementById("contact");
 
   function startQuickQuote() {
-    const name = (nameInput?.value || "").trim();
+    var name = "";
+    if (nameInput && typeof nameInput.value === "string") {
+      name = nameInput.value.trim();
+    }
+
     if (!name) {
       if (messageEl) messageEl.textContent = "Please enter your name to continue.";
       return;
@@ -53,17 +54,26 @@ document.addEventListener("DOMContentLoaded", () => {
     if (contactName) contactName.value = name;
 
     // Update helper text
-    if (messageEl) messageEl.innerHTML = `<strong>Nice, ${name}.</strong> I’ll pre-fill your name below — just send your message.`;
+    if (messageEl) {
+      messageEl.innerHTML =
+        "<strong>Nice, " + name + ".</strong> I’ll pre-fill your name below — just send your message.";
+    }
 
     // Scroll to contact
-    if (contactSection) {
+    if (contactSection && typeof contactSection.scrollIntoView === "function") {
       contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      // fallback
+      window.location.hash = "#contact";
     }
   }
 
-  if (btnGreet) btnGreet.addEventListener("click", startQuickQuote);
+  if (btnGreet) {
+    btnGreet.addEventListener("click", startQuickQuote);
+  }
+
   if (nameInput) {
-    nameInput.addEventListener("keydown", (e) => {
+    nameInput.addEventListener("keydown", function (e) {
       if (e.key === "Enter") startQuickQuote();
     });
   }
@@ -71,24 +81,25 @@ document.addEventListener("DOMContentLoaded", () => {
   // -----------------------------
   // Formspree inline submit (no redirect)
   // -----------------------------
-  const form = document.getElementById("quote-form");
-  const status = document.getElementById("formStatus");
+  var form = document.getElementById("quote-form");
+  var status = document.getElementById("formStatus");
 
   if (form && status) {
-    form.querySelectorAll("input, textarea").forEach((el) => {
-      el.addEventListener("input", () => {
+    var fields = form.querySelectorAll("input, textarea");
+    for (var f = 0; f < fields.length; f++) {
+      fields[f].addEventListener("input", function () {
         status.textContent = "";
         status.className = "form-status";
       });
-    });
+    }
 
-    form.addEventListener("submit", async (e) => {
+    form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
       track("quote_form_submit_attempt", { location: "contact_form" });
 
-      const data = new FormData(form);
-      const button = form.querySelector('button[type="submit"]');
+      var data = new FormData(form);
+      var button = form.querySelector('button[type="submit"]');
 
       if (button) {
         button.disabled = true;
@@ -99,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
       status.className = "form-status";
 
       try {
-        const response = await fetch(form.action, {
+        var response = await fetch(form.action, {
           method: "POST",
           body: data,
           headers: { Accept: "application/json" },
