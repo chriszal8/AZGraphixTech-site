@@ -14,13 +14,18 @@
 
     <link rel="stylesheet" href="./styles.css" />
     <!-- Google Analytics (GA4) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TBS51EN46B"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-TBS51EN46B');
-</script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-TBS51EN46B"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-TBS51EN46B");
+    </script>
 
     <script src="./app.js" defer></script>
   </head>
@@ -68,7 +73,7 @@
           <div class="hero__left">
             <!-- Optimized Hero (same classes, better messaging) -->
             <h1 class="hero__title">
-              Web Design, Branding & Tech Support
+              Web Design, Branding, QR Codes, and Tech Support
               <span class="hero__accent">For Houston Small Businesses</span>
             </h1>
 
@@ -178,7 +183,7 @@
             </div>
 
             <!-- Graphics & Apparel -->
-            <div class="service">
+            <a href="graphics-apparel.html" class="service">
               <div class="service__icon" aria-hidden="true">
                 <svg
                   viewBox="0 0 24 24"
@@ -200,10 +205,10 @@
                   <span class="service__accent">Graphics & Apparel</span>
                 </h3>
                 <p class="service__text">
-                  Logos, mockups, DTF-ready designs, laser engraving, branding.
+                  Logos, Mockups, DTF-Ready Designs, Laser Engraving, Branding.
                 </p>
               </div>
-            </div>
+            </a>
 
             <!-- Tech Support -->
             <div class="service">
@@ -360,7 +365,8 @@
               </div>
             </div>
 
-            <div class="service">
+            <!-- Diseño Gráfico y Ropa Personalizada (CLICKABLE) -->
+            <a href="graphics-apparel.html" class="service">
               <div class="service__icon" aria-hidden="true">
                 <svg
                   viewBox="0 0 24 24"
@@ -384,11 +390,11 @@
                   >
                 </h3>
                 <p class="service__text">
-                  Logotipos, mockups, diseños listos para DTF, grabado láser y
-                  branding profesional para tu marca.
+                  Logotipos, Mockups, Diseños Listos para DTF, Grabado Láser y
+                  Branding Profesional para tu marca.
                 </p>
               </div>
-            </div>
+            </a>
 
             <div class="service">
               <div class="service__icon" aria-hidden="true">
@@ -959,4 +965,3 @@
     </div>
   </body>
 </html>
-
