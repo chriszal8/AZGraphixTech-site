@@ -1818,3 +1818,11 @@ a.service:hover {
   text-decoration: none;
   color: inherit;
 }
+.portfolio-hero {
+  padding: 100px 0 80px 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 191, 255, 0.06),
+    rgba(0, 0, 0, 0.03)
+  );
+}
