@@ -1826,3 +1826,8 @@ a.service:hover {
     rgba(0, 0, 0, 0.03)
   );
 }
+.footer-social {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
