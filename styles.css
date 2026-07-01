@@ -2568,3 +2568,132 @@ a.service:hover {
     min-height: auto !important;
   }
 }
+/* =========================
+   HERO PHOTO BACKGROUND FINAL
+   Readdy-inspired hero using real office background
+========================= */
+
+/* Remove the floating cards visually */
+.hero-showcase {
+  display: none !important;
+}
+
+/* Hero background photo setup */
+.hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  min-height: 650px !important;
+  padding: 92px 18px 72px !important;
+  background: #071417 !important;
+}
+
+/* Background image + dark overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(3, 15, 18, 0.88) 0%,
+      rgba(3, 15, 18, 0.76) 38%,
+      rgba(3, 15, 18, 0.50) 65%,
+      rgba(3, 15, 18, 0.58) 100%
+    ),
+    url("./assets/hero-office-bg.jpg") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Soft teal glow */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 70% 35%, rgba(20, 184, 166, 0.22), transparent 32%),
+    radial-gradient(circle at 15% 18%, rgba(20, 184, 166, 0.10), transparent 28%);
+  pointer-events: none;
+}
+
+/* Keep content above the background */
+.hero__inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* Make hero text work over the dark image */
+.hero .hero__title {
+  color: #ffffff !important;
+  text-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
+}
+
+.hero .hero__accent {
+  color: #2dd4bf !important;
+}
+
+.hero .hero__subtitle,
+.hero .hero__trust,
+.hero .small {
+  color: rgba(255, 255, 255, 0.86) !important;
+}
+
+.hero .hero__trust strong {
+  color: #ffffff !important;
+}
+
+/* Buttons on dark background */
+.hero .btn--outline {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.72) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.hero .btn--outline:hover {
+  background: rgba(255, 255, 255, 0.16) !important;
+}
+
+/* Hero badges */
+.hero .badge,
+.hero .trust-pill {
+  background: rgba(255, 255, 255, 0.13) !important;
+  border-color: rgba(255, 255, 255, 0.20) !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(8px);
+}
+
+/* Quick quote card stays readable */
+.hero__right .card {
+  position: relative !important;
+  z-index: 4 !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+  border: 1px solid rgba(255, 255, 255, 0.38) !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24) !important;
+}
+
+/* Mobile cleanup */
+@media (max-width: 900px) {
+  .hero {
+    min-height: auto !important;
+    padding: 58px 18px 44px !important;
+  }
+
+  .hero::before {
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(3, 15, 18, 0.88) 0%,
+        rgba(3, 15, 18, 0.76) 100%
+      ),
+      url("./assets/hero-office-bg.jpg") !important;
+    background-position: center center !important;
+  }
+
+  .hero::after {
+    opacity: 0.6;
+  }
+}
