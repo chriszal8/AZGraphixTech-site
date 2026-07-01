@@ -1810,5 +1810,101 @@ a.service:hover {
 .footer-social {
   display: flex;
   gap: 16px;
+  /* =========================
+   BLINK-INSPIRED PORTFOLIO UPGRADE
+   Safe add-on for AZ GraphixTech
+========================= */
+
+.portfolio-grid--premium {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+  margin-top: 24px;
+}
+
+.portfolio-card--premium {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 100%;
+  padding: 24px;
+  border: 1px solid rgba(15, 118, 110, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.92)),
+    radial-gradient(circle at top right, rgba(31, 166, 160, 0.12), transparent 35%);
+}
+
+.portfolio-card--premium:hover {
+  transform: translateY(-4px);
+  border-color: rgba(15, 118, 110, 0.24);
+  box-shadow: 0 18px 40px rgba(15, 118, 110, 0.12);
+}
+
+.portfolio-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.portfolio-card__icon {
+  width: 46px;
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(15, 118, 110, 0.08);
+  color: var(--brand, #0f766e);
+  font-size: 22px;
+}
+
+.portfolio-card__tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(15, 118, 110, 0.08);
+  border: 1px solid rgba(15, 118, 110, 0.14);
+  color: var(--brand, #0f766e);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.portfolio-card--premium h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.25;
+  color: var(--text-dark, #0f172a);
+}
+
+.portfolio-card--premium p {
+  margin: 0;
+  color: var(--text-muted, #475569);
+  line-height: 1.65;
+}
+
+.portfolio-card--premium ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text-dark, #0f172a);
+}
+
+.portfolio-card--premium li {
+  margin-bottom: 6px;
+  font-size: 0.92rem;
+}
+
+.portfolio-card--premium .btn {
+  margin-top: auto;
+  width: fit-content;
+}
+
+@media (max-width: 700px) {
+  .portfolio-card--premium .btn {
+    width: 100%;
+  }
+} 
   align-items: center;
 }
