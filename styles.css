@@ -2117,3 +2117,67 @@ a.service:hover {
     justify-content: flex-start;
   }
 }
+/* =========================
+   HERO BACKGROUND — Subtle Tech/UI Pattern
+   Safe CSS-only upgrade for AZ GraphixTech
+========================= */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Soft digital background glow */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(31, 166, 160, 0.18), transparent 28%),
+    radial-gradient(circle at 82% 12%, rgba(56, 189, 248, 0.13), transparent 26%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(238, 247, 246, 0.95));
+}
+
+/* Very light tech grid / UI lines */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(rgba(15, 118, 110, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 118, 110, 0.16) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(90deg, black 0%, black 55%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Keep hero content above the background */
+.hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Extra premium feel for the quote card on the hero */
+.hero__right .card {
+  border: 1px solid rgba(15, 118, 110, 0.12);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+}
+
+/* Mobile: make the background softer */
+@media (max-width: 700px) {
+  .hero::after {
+    opacity: 0.1;
+    mask-image: none;
+  }
+
+  .hero::before {
+    background:
+      radial-gradient(circle at 20% 12%, rgba(31, 166, 160, 0.14), transparent 32%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(238, 247, 246, 0.98));
+  }
+}
