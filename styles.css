@@ -2390,3 +2390,39 @@ a.service:hover {
     display: none;
   }
 }
+/* =========================
+   HERO SHOWCASE POLISH
+   Keeps the visual strong but less crowded
+========================= */
+
+.hero-showcase__card {
+  opacity: 0.82;
+  transform: scale(0.96);
+}
+
+.hero-showcase__card--website {
+  right: 42px;
+}
+
+.hero-showcase__card--brand {
+  right: 360px;
+}
+
+.hero-showcase__card--flyer {
+  right: 34px;
+}
+
+.hero-showcase__card--qr {
+  bottom: 42px;
+  right: 290px;
+}
+
+.hero-showcase__card--support {
+  bottom: 30px;
+  right: 36px;
+}
+
+.hero__right .card {
+  position: relative;
+  z-index: 3;
+}
