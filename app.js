@@ -20,11 +20,25 @@ document.addEventListener("DOMContentLoaded", function () {
   // -----------------------------
   // GA4 click tracking
   // -----------------------------
-  bindClick('.nav__actions a[href="#contact"]', "nav_quote_click", { location: "nav" });
-  bindClick('a.btn--primary[href="#contact"]', "cta_quote_click", { location: "page" });
-  bindClick('a[href^="tel:"]', "call_click", { location: "site" });
-  bindClick('a[href^="sms:"]', "text_click", { location: "site" });
-  bindClick('a[href*="wa.me/"]', "whatsapp_click", { location: "site" });
+  bindClick('.nav__actions a[href="#contact"]', "nav_quote_click", {
+    location: "nav",
+  });
+
+  bindClick('a.btn--primary[href="#contact"]', "cta_quote_click", {
+    location: "page",
+  });
+
+  bindClick('a[href^="tel:"]', "call_click", {
+    location: "site",
+  });
+
+  bindClick('a[href^="sms:"]', "text_click", {
+    location: "site",
+  });
+
+  bindClick('a[href*="wa.me/"]', "whatsapp_click", {
+    location: "site",
+  });
 
   // -----------------------------
   // Quick Quote Starter -> Prefill + Track
@@ -34,38 +48,57 @@ document.addEventListener("DOMContentLoaded", function () {
   var messageEl = document.getElementById("message");
 
   var contactName = document.getElementById("contactName");
+  var contactMessage = document.getElementById("contactMessage");
   var contactSection = document.getElementById("contact");
+
+  function scrollToContact() {
+    if (contactSection && typeof contactSection.scrollIntoView === "function") {
+      contactSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    } else {
+      window.location.hash = "#contact";
+    }
+  }
 
   function startQuickQuote() {
     var name = "";
+
     if (nameInput && typeof nameInput.value === "string") {
       name = nameInput.value.trim();
     }
 
     if (!name) {
-      if (messageEl) messageEl.textContent = "Please enter your name to continue.";
+      if (messageEl) {
+        messageEl.textContent = "Please enter your name to continue.";
+      }
       return;
     }
 
-    // Track micro-lead
-    track("quick_quote_started", { location: "hero_card" });
+    track("quick_quote_started", {
+      location: "hero_card",
+    });
 
-    // Prefill contact form name
-    if (contactName) contactName.value = name;
+    if (contactName) {
+      contactName.value = name;
+    }
 
-    // Update helper text
+    if (contactMessage && !contactMessage.value.trim()) {
+      contactMessage.value =
+        "Hi, my name is " +
+        name +
+        ". I would like a quote for a project with AZ GraphixTech Innovations.";
+    }
+
     if (messageEl) {
-      messageEl.innerHTML =
-        "<strong>Nice, " + name + ".</strong> I’ll pre-fill your name below — just send your message.";
+      messageEl.textContent =
+        "Nice, " +
+        name +
+        ". I’ll pre-fill your name below — just send your message.";
     }
 
-    // Scroll to contact
-    if (contactSection && typeof contactSection.scrollIntoView === "function") {
-      contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    } else {
-      // fallback
-      window.location.hash = "#contact";
-    }
+    scrollToContact();
   }
 
   if (btnGreet) {
@@ -74,7 +107,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (nameInput) {
     nameInput.addEventListener("keydown", function (e) {
-      if (e.key === "Enter") startQuickQuote();
+      if (e.key === "Enter") {
+        startQuickQuote();
+      }
+    });
+  }
+
+  // -----------------------------
+  // Quick Quote buttons -> Prefill contact message
+  // -----------------------------
+  var quoteButtons = document.querySelectorAll("[data-template]");
+
+  var templates = {
+    website:
+      "Hi, I’m interested in a website quote for my business. Please send me pricing and timeline information.",
+
+    logo:
+      "Hi, I’m interested in a logo or branding quote. I would like to know the process, pricing, and turnaround time.",
+
+    qr:
+      "Hi, I’m interested in a QR code setup for my business. Please send me more information about pricing and options.",
+
+    support:
+      "Hi, I need tech support. Please contact me so I can explain the issue and get a quote.",
+  };
+
+  for (var q = 0; q < quoteButtons.length; q++) {
+    quoteButtons[q].addEventListener("click", function (e) {
+      var templateType = this.getAttribute("data-template");
+
+      if (templateType && templates[templateType]) {
+        if (contactMessage) {
+          contactMessage.value = templates[templateType];
+        }
+
+        track("quote_template_click", {
+          template: templateType,
+          location: "quick_quote_section",
+        });
+
+        scrollToContact();
+      }
     });
   }
 
@@ -86,6 +159,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (form && status) {
     var fields = form.querySelectorAll("input, textarea");
+
     for (var f = 0; f < fields.length; f++) {
       fields[f].addEventListener("input", function () {
         status.textContent = "";
@@ -96,7 +170,9 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
-      track("quote_form_submit_attempt", { location: "contact_form" });
+      track("quote_form_submit_attempt", {
+        location: "contact_form",
+      });
 
       var data = new FormData(form);
       var button = form.querySelector('button[type="submit"]');
@@ -113,28 +189,36 @@ document.addEventListener("DOMContentLoaded", function () {
         var response = await fetch(form.action, {
           method: "POST",
           body: data,
-          headers: { Accept: "application/json" },
+          headers: {
+            Accept: "application/json",
+          },
         });
 
         if (response.ok) {
           status.innerHTML =
-            "<strong>Message received.</strong><br>I'll personally review it and reply within 24 hours.";
+            "<strong>Message received.</strong><br>I’ll personally review it and reply within 24 hours.";
           status.className = "form-status success";
 
-          track("quote_form_submit_success", { location: "contact_form" });
+          track("quote_form_submit_success", {
+            location: "contact_form",
+          });
 
           form.reset();
         } else {
           status.textContent = "Something went wrong. Please try again.";
           status.className = "form-status error";
 
-          track("quote_form_submit_error", { location: "contact_form" });
+          track("quote_form_submit_error", {
+            location: "contact_form",
+          });
         }
       } catch (err) {
         status.textContent = "Network error. Please try again.";
         status.className = "form-status error";
 
-        track("quote_form_submit_error", { location: "contact_form" });
+        track("quote_form_submit_error", {
+          location: "contact_form",
+        });
       }
 
       if (button) {
@@ -144,4 +228,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
