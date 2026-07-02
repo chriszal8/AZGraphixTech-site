@@ -2697,3 +2697,20 @@ a.service:hover {
     opacity: 0.6;
   }
 }
+/* =========================
+   HERO PHOTO CLEANUP
+   Remove large quote card from hero so background image can shine
+========================= */
+
+.hero .hero__right {
+  display: none !important;
+}
+
+.hero .hero__inner {
+  grid-template-columns: minmax(0, 760px) !important;
+  justify-content: flex-start !important;
+}
+
+.hero .hero__left {
+  max-width: 760px !important;
+}
