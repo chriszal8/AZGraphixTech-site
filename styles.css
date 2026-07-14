@@ -128,7 +128,7 @@ img {
   color: var(--muted);
   margin-top: 2px;
 }
-/* FORCE brand text to teal (premium fix) */
+/* Brand text color override*/
 .nav__brand-name {
   color: var(--teal) !important;
 }
