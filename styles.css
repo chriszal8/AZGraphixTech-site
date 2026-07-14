@@ -92,7 +92,7 @@ img {
   color: var(--muted);
   margin-top: 2px;
 }
-/* Premium navbar polish */
+/* Navbar refinements */
 .nav {
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
