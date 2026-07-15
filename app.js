@@ -1,4 +1,51 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // -----------------------------
+  // Anime.js — Hero entrance
+  // -----------------------------
+  if (
+    window.anime &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
+    const { animate, stagger } = window.anime;
+
+    const heroTextItems = document.querySelectorAll(
+      ".hero__title, .hero__subtitle, .hero__trust, .hero__cta, .hero__badges, .trust-strip"
+    );
+
+    if (heroTextItems.length > 0) {
+      animate(heroTextItems, {
+        opacity: {
+          from: 0,
+          to: 1,
+        },
+        y: {
+          from: 22,
+          to: 0,
+        },
+        duration: 750,
+        delay: stagger(90),
+        ease: "outExpo",
+      });
+    }
+
+    const heroQuoteCard = document.querySelector(".hero__right");
+
+    if (heroQuoteCard) {
+      animate(heroQuoteCard, {
+        opacity: {
+          from: 0,
+          to: 1,
+        },
+        x: {
+          from: 28,
+          to: 0,
+        },
+        duration: 900,
+        delay: 260,
+        ease: "outExpo",
+      });
+    }
+  }
   // -----------------------------
   // GA4 helper
   // -----------------------------
