@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // -----------------------------
+  // -----------------------------
   // Anime.js — Hero entrance
   // -----------------------------
   if (
@@ -45,7 +45,53 @@ document.addEventListener("DOMContentLoaded", function () {
         ease: "outExpo",
       });
     }
+
+    // -----------------------------
+    // Anime.js — Service cards reveal
+    // -----------------------------
+    const servicesSection = document.querySelector("#services");
+    const serviceCards = document.querySelectorAll(".az-service-card");
+
+    if (servicesSection && serviceCards.length > 0) {
+      serviceCards.forEach(function (card) {
+        card.style.opacity = "0";
+      });
+
+      if ("IntersectionObserver" in window) {
+        const servicesObserver = new IntersectionObserver(
+          function (entries, observer) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) {
+                return;
+              }
+
+              animate(serviceCards, {
+                opacity: {
+                  from: 0,
+                  to: 1,
+                },
+                duration: 650,
+                delay: stagger(110),
+                ease: "outQuad",
+              });
+
+              observer.unobserve(entry.target);
+            });
+          },
+          {
+            threshold: 0.18,
+          }
+        );
+
+        servicesObserver.observe(servicesSection);
+      } else {
+        serviceCards.forEach(function (card) {
+          card.style.opacity = "1";
+        });
+      }
+    }
   }
+
   // -----------------------------
   // GA4 helper
   // -----------------------------
@@ -57,6 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function bindClick(selector, eventName, params) {
     var els = document.querySelectorAll(selector);
+
     for (var i = 0; i < els.length; i++) {
       els[i].addEventListener("click", function () {
         track(eventName, params);
@@ -120,6 +167,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (messageEl) {
         messageEl.textContent = "Please enter your name to continue.";
       }
+
       return;
     }
 
@@ -135,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
       contactMessage.value =
         "Hi, my name is " +
         name +
-        ". I would like a quote for a project with AZ GraphixTech Innovations.";
+        ". I would like a quote for a project with AZ GraphixTech.";
     }
 
     if (messageEl) {
@@ -180,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   for (var q = 0; q < quoteButtons.length; q++) {
-    quoteButtons[q].addEventListener("click", function (e) {
+    quoteButtons[q].addEventListener("click", function () {
       var templateType = this.getAttribute("data-template");
 
       if (templateType && templates[templateType]) {
@@ -244,6 +292,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (response.ok) {
           status.innerHTML =
             "<strong>Message received.</strong><br>I’ll personally review it and reply within 24 hours.";
+
           status.className = "form-status success";
 
           track("quote_form_submit_success", {
