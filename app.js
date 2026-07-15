@@ -90,6 +90,51 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       }
     }
+
+    // -----------------------------
+    // Anime.js — Package cards reveal
+    // -----------------------------
+    const packagesSection = document.querySelector("#packages");
+    const packageCards = document.querySelectorAll(".az-package-card");
+
+    if (packagesSection && packageCards.length > 0) {
+      packageCards.forEach(function (card) {
+        card.style.opacity = "0";
+      });
+
+      if ("IntersectionObserver" in window) {
+        const packagesObserver = new IntersectionObserver(
+          function (entries, observer) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) {
+                return;
+              }
+
+              animate(packageCards, {
+                opacity: {
+                  from: 0,
+                  to: 1,
+                },
+                duration: 700,
+                delay: stagger(140),
+                ease: "outQuad",
+              });
+
+              observer.unobserve(entry.target);
+            });
+          },
+          {
+            threshold: 0.18,
+          }
+        );
+
+        packagesObserver.observe(packagesSection);
+      } else {
+        packageCards.forEach(function (card) {
+          card.style.opacity = "1";
+        });
+      }
+    }
   }
 
   // -----------------------------
