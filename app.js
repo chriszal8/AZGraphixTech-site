@@ -94,10 +94,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // -----------------------------
     // Anime.js — Package cards reveal
     // -----------------------------
-    const packagesSection = document.querySelector("#packages");
+    const packagesGrid = document.querySelector(".az-packages-grid");
     const packageCards = document.querySelectorAll(".az-package-card");
 
-    if (packagesSection && packageCards.length > 0) {
+    if (packagesGrid && packageCards.length > 0) {
       packageCards.forEach(function (card) {
         card.style.opacity = "0";
       });
@@ -115,20 +115,21 @@ document.addEventListener("DOMContentLoaded", function () {
                   from: 0,
                   to: 1,
                 },
-                duration: 700,
-                delay: stagger(140),
-                ease: "outQuad",
+                duration: 900,
+                delay: stagger(180),
+                ease: "outExpo",
               });
 
               observer.unobserve(entry.target);
             });
           },
           {
-            threshold: 0.18,
+            threshold: 0.12,
+            rootMargin: "0px 0px -10% 0px",
           }
         );
 
-        packagesObserver.observe(packagesSection);
+        packagesObserver.observe(packagesGrid);
       } else {
         packageCards.forEach(function (card) {
           card.style.opacity = "1";
@@ -292,7 +293,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // -----------------------------
-  // Formspree inline submit (no redirect)
+  // Formspree inline submit
   // -----------------------------
   var form = document.getElementById("quote-form");
   var status = document.getElementById("formStatus");
@@ -369,5 +370,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
-
