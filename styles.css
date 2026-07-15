@@ -3466,3 +3466,36 @@ a.service:hover {
   );
 }
 
+/* =========================================
+   FIX SERVICE BUTTON TEXT CONTRAST
+========================================= */
+
+.az-service-link,
+.az-service-link:visited {
+  color: #0f766e !important;
+  -webkit-text-fill-color: #0f766e !important;
+
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.az-service-link:hover,
+.az-service-link:focus-visible,
+.az-service-link:active {
+  background: #0f766e !important;
+  border-color: #0f766e !important;
+
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(15, 118, 110, 0.2);
+}
+
+.az-service-link:focus-visible {
+  outline: 3px solid rgba(15, 118, 110, 0.25);
+  outline-offset: 3px;
+}
