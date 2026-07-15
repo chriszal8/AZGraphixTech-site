@@ -3352,3 +3352,98 @@ a.service:hover {
     width: 100%;
   }
 }
+
+/* =========================================
+   PREMIUM PRIMARY BUTTON — AZ GRAPHIXTECH
+========================================= */
+
+.btn--primary {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  overflow: hidden;
+
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  box-shadow:
+    0 8px 22px rgba(15, 118, 110, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    filter 200ms ease;
+}
+
+/* Main teal background */
+.btn--primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background: linear-gradient(
+    135deg,
+    #0f766e 0%,
+    #0d9488 55%,
+    #0f766e 100%
+  );
+}
+
+/* Subtle light movement */
+.btn--primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -130%;
+  width: 70%;
+  z-index: -1;
+  pointer-events: none;
+
+  background: linear-gradient(
+    110deg,
+    transparent 15%,
+    rgba(255, 255, 255, 0.26) 50%,
+    transparent 85%
+  );
+
+  transform: skewX(-18deg);
+  transition: left 650ms ease;
+}
+
+.btn--primary:hover {
+  background: transparent;
+  color: #ffffff;
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 13px 28px rgba(15, 118, 110, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.btn--primary:hover::after {
+  left: 150%;
+}
+
+.btn--primary:active {
+  transform: translateY(0);
+  box-shadow:
+    0 6px 14px rgba(15, 118, 110, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.btn--primary:focus-visible {
+  outline: 3px solid rgba(13, 148, 136, 0.3);
+  outline-offset: 3px;
+}
+
+/* Accessibility: reduce movement when requested */
+@media (prefers-reduced-motion: reduce) {
+  .btn--primary,
+  .btn--primary::after {
+    transition: none;
+  }
+}
