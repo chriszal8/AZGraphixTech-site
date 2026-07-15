@@ -3447,3 +3447,21 @@ a.service:hover {
     transition: none;
   }
 }
+/* Fix Quick Quote primary button contrast */
+#cta-quote .btn.btn--primary,
+#cta-quote .btn.btn--primary:visited,
+#cta-quote .btn.btn--primary:hover,
+#cta-quote .btn.btn--primary:focus {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Slightly lighter teal for this button */
+#cta-quote .btn.btn--primary::before {
+  background: linear-gradient(
+    135deg,
+    #0d9488 0%,
+    #14a89e 55%,
+    #0f857d 100%
+  );
+}
